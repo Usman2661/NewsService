@@ -31,6 +31,8 @@ export class ArticleMiddleware {
         */
         try {
             
+            // Calling articles using the newsapi library. 
+            // Calling multiple topics at the same time using OR keyword as calling 4 requests seperately can be costly (Higher API Calls)
             const articleResponse = await newsapi.v2.everything({
                 q: 'apple OR covid OR bitcoin OR "Machine Learning"',
                 from: dateTimeFrom,

@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "804ac83a-f2ed-42a9-a772-96dcc24fe25e",
+		"name": "NewsArticles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Articles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Article API - Should Return Status 200 and Return json array\", function() {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Article API - The response should be a JSON array with objects containing the data\", function(){\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.be.an(\"array\");\r",
+							"    pm.expect(response[0]).to.be.an(\"object\");\r",
+							"    \r",
+							"    var id = response[0].id;  \r",
+							"    pm.collectionVariables.set('article_id', id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{articleBaseUrl}}",
+					"host": [
+						"{{articleBaseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sources",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Source API - Should Return Status 200 and Return json array\", function() {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Source API - The response should be a JSON array with objects containing the data\", function(){\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.be.an(\"array\");\r",
+							"    pm.expect(response[0]).to.be.an(\"object\");\r",
+							"\r",
+							"    var id = response[0].id;  \r",
+							"    pm.collectionVariables.set('source_id', id);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{sourceBaseUrl}}",
+					"host": [
+						"{{sourceBaseUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Article",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Single Article API - Should Return Status 200 and Return json array\", function() {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Single Article API - The response should be a JSON object containing the data\", function(){\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.be.an(\"object\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{articleBaseUrl}}/{{article_id}}",
+					"host": [
+						"{{articleBaseUrl}}"
+					],
+					"path": [
+						"{{article_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Source",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Single Source API - Should Return Status 200 and Return json array\", function() {\r",
+							"    pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Single Source API - The response should be a JSON objects containing the data\", function(){\r",
+							"    var response = pm.response.json();\r",
+							"    pm.expect(response).to.be.an(\"object\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{sourceBaseUrl}}/{{source_id}}",
+					"host": [
+						"{{sourceBaseUrl}}"
+					],
+					"path": [
+						"{{source_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "article_id",
+			"value": "170"
+		},
+		{
+			"key": "source_id",
+			"value": "94"
+		}
+	]
+}

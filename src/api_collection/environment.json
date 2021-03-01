@@ -1,0 +1,19 @@
+{
+	"id": "8620be98-597d-4a4e-9d96-e9a93c440938",
+	"name": "NewsArticle",
+	"values": [
+		{
+			"key": "articleBaseUrl",
+			"value": "http://localhost:4000/api/article",
+			"enabled": true
+		},
+		{
+			"key": "sourceBaseUrl",
+			"value": "http://localhost:4000/api/source",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-03-01T13:24:00.712Z",
+	"_postman_exported_using": "Postman/7.36.5"
+}

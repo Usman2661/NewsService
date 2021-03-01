@@ -12,7 +12,7 @@ Prerequisites
 
 1. Clone the repo
 
-2. In the root create a file caled .env to prevent having secrets in git codebase and add the following: 
+2. In the root create a file caled .env to prevent having secrets in git codebase and ability to change in (dev,stage, production environments) and add the following: 
 ```powershell
 dbPort=<Port_For_Database_Here>
 dbName=<Database_Name_Here>
